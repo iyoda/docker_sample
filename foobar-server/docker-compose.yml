@@ -1,0 +1,38 @@
+version: '2'
+
+services:
+  mysql:
+    image: mysql:5.5
+    volumes:
+      - "/Users/iyoda/Projects/docker_sample/mysql:/var/lib/mysql"
+      - "./mysql_init:/docker-entrypoint-initdb.d"
+      - "./mysql_conf.d:/etc/mysql/conf.d"
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+
+  php_admin:
+    depends_on:
+      - mysql
+    build:
+      context: ../apache-php
+      args:
+        HTDOCS: \/home\/hoge\/admin_app\/htdocs
+    volumes:
+      - "/Users/iyoda/Projects/docker_sample/hoge_project:/home/hoge"
+    ports:
+      - "9081:80"
+    restart: always
+
+  php:
+    depends_on:
+      - mysql
+    build:
+      context: ../apache-php
+      args:
+        HTDOCS: \/home\/hoge\/site_app\/htdocs
+    volumes:
+      - "/Users/iyoda/Projects/docker_sample/hoge_project:/home/hoge"
+    ports:
+      - "9080:80"
+    restart: always
