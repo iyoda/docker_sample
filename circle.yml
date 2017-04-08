@@ -7,13 +7,6 @@ jobs:
     steps:
       - checkout
 
-      - run:
-          name: copy htdocs
-          command: |
-            mkdir -p /Users/iyoda/Projects/docker_sample
-            cp -r /root/docker_sample/hoge_project /Users/iyoda/Projects/docker_sample
-            ls -l /Users/iyoda/Projects/docker_sample/hoge_project
-
       - setup_remote_docker:
           reusable: true
 
@@ -40,7 +33,7 @@ jobs:
           command: |
             set -x
             cd /root/docker_sample/foobar-server && docker-compose up -d
-            sleep 10
+            sleep 5
             docker-compose ps
             docker-compose logs
             curl --retry 10 --retry-delay 1 http://localhost:9080/mysql_sample.php
