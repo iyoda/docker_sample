@@ -37,6 +37,5 @@ jobs:
             docker-compose ps
             docker-compose logs
             docker inspect foobarserver_php_admin_1
-            docker-compose exec php_admin /bin/ls /home
-            docker-compose exec php_admin /bin/ls /home/hoge
+            docker volume ls
             curl --retry 10 --retry-delay 1 http://localhost:9080/mysql_sample.php
