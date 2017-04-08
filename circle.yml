@@ -40,4 +40,5 @@ jobs:
             set -x
             cd /root/docker_sample/foobar-server && docker-compose up -d
             sleep 10
+            docker-compose ps
             curl --retry 10 --retry-delay 1 http://localhost:9080/mysql_sample.php
