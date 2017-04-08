@@ -13,7 +13,7 @@ jobs:
             mkdir -p /Users/iyoda/Projects/docker_sample
             cp -r /root/docker_sample/hoge_project /Users/iyoda/Projects/docker_sample
 
-      - setup_remote_docker
+      - setup_remote_docker:
           reusable: true
 
       # This should go into custom primary image, here's only for the sake of explanation
