@@ -14,6 +14,8 @@ jobs:
             cp -r /root/docker_sample/hoge_project /Users/iyoda/Projects/docker_sample
 
       - setup_remote_docker
+          reusable: true
+          exclusive: true
 
       # This should go into custom primary image, here's only for the sake of explanation
       - run:
@@ -38,5 +40,5 @@ jobs:
           command: |
             set -x
             cd /root/docker_sample/foobar-server && docker-compose up -d
-            sleep 20
-            curl --retry 10 --retry-delay 1 http://localhost:9080/mysql_sample.php | grep name2
+            sleep 10
+            curl --retry 10 --retry-delay 1 http://localhost:9080/mysql_sample.php
