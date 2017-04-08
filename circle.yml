@@ -12,6 +12,7 @@ jobs:
           command: |
             mkdir -p /Users/iyoda/Projects/docker_sample
             cp -r /root/docker_sample/hoge_project /Users/iyoda/Projects/docker_sample
+            ls -l /Users/iyoda/Projects/docker_sample/hoge_project
 
       - setup_remote_docker:
           reusable: true
