@@ -15,7 +15,6 @@ jobs:
 
       - setup_remote_docker
           reusable: true
-          exclusive: true
 
       # This should go into custom primary image, here's only for the sake of explanation
       - run:
