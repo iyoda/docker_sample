@@ -20,8 +20,8 @@ services:
         HTDOCS: \/home\/hoge\/admin_app\/htdocs
     #volumes:
     #  - "../hoge_project:/home/hoge"
-    ports:
-      - "9081:80"
+    #ports:
+    #  - "9081:80"
     restart: always
 
   php:
@@ -33,6 +33,6 @@ services:
         HTDOCS: \/home\/hoge\/site_app\/htdocs
     #volumes:
     #  - "../hoge_project:/home/hoge"
-    ports:
-      - "9080:80"
+    #ports:
+    #  - "9080:80"
     restart: always

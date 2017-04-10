@@ -5,6 +5,7 @@ MAINTAINER IYODA Atsushi
 LABEL version="1.0"
 LABEL description="apache-php Dockerfile."
 
+COPY httpd.conf.tmpl /etc/httpd/conf/httpd.conf.tmpl
 ARG HTDOCS
 ENV HTDOCS ${HTDOCS:-\\/var\\/www\\/html}
 RUN echo $HTDOCS
