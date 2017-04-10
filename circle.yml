@@ -32,10 +32,12 @@ jobs:
           name: Start container
           command: |
             set -x
-            cd /root/docker_sample/foobar-server && docker-compose up -d
+            cd /root/docker_sample/foobar-server
+            docker-compose build
+            docker-compose run php ls /home/hoge
+#            tar cf - ../hoge_project | docker-compose run php "cd /home/hoge; tar xf -"
+            docker-compose up -d
             sleep 5
             docker-compose ps
             docker-compose logs
-            docker inspect foobarserver_php_admin_1
-            docker volume ls
             curl --retry 10 --retry-delay 1 http://localhost:9080/mysql_sample.php
