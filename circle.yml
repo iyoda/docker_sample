@@ -34,9 +34,10 @@ jobs:
             set -x
             cd /root/docker_sample/foobar-server
             docker-compose build
-            docker-compose run php ls /home/hoge
-            #            tar cf - ../hoge_project | docker-compose run php "cd /home/hoge; tar xf -"
-            docker-compose up -d
+            docker-compose -f docker-compose.yml -f docker-compose-ci.yml run homes
+            docker cp ../hoge_project/admin_app homes:/home/hoge
+            docker cp ../site_app homes:/home/hoge
+            docker-compose -f docker-compose.yml -f docker-compose-ci.yml up -d
             sleep 5
             docker-compose ps
             docker-compose logs

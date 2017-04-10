@@ -18,8 +18,8 @@ services:
       context: ../apache-php
       args:
         HTDOCS: \/home\/hoge\/admin_app\/htdocs
-    volumes:
-      - "../hoge_project:/home/hoge"
+    #volumes:
+    #  - "../hoge_project:/home/hoge"
     ports:
       - "9081:80"
     restart: always
@@ -31,8 +31,8 @@ services:
       context: ../apache-php
       args:
         HTDOCS: \/home\/hoge\/site_app\/htdocs
-    volumes:
-      - "../hoge_project:/home/hoge"
+    #volumes:
+    #  - "../hoge_project:/home/hoge"
     ports:
       - "9080:80"
     restart: always

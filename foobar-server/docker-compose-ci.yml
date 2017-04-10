@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  homes:
+    container_name: homes
+    image: alpine:3.4
+    command: /bin/true
+    volumes:
+      - /home/hoge
+
+  php_admin:
+    volumes_from:
+      - homes
+
+  php:
+    volumes_from:
+      - homes
+
+volumes:
+  homes:
+
