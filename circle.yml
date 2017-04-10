@@ -41,4 +41,4 @@ jobs:
             sleep 5
             docker-compose ps
             docker-compose logs
-            docker-compose exec php curl --retry 10 --retry-delay 1 http://localhost:9080/mysql_sample.php
+            docker-compose exec php curl --retry 10 --retry-delay 1 http://localhost:80/mysql_sample.php
