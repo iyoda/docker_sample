@@ -35,7 +35,7 @@ jobs:
             cd /root/docker_sample/foobar-server
             docker-compose build
             docker-compose run php ls /home/hoge
-#            tar cf - ../hoge_project | docker-compose run php "cd /home/hoge; tar xf -"
+            #            tar cf - ../hoge_project | docker-compose run php "cd /home/hoge; tar xf -"
             docker-compose up -d
             sleep 5
             docker-compose ps
