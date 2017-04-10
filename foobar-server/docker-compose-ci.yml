@@ -7,6 +7,12 @@ services:
     command: /bin/true
     volumes:
       - /home/hoge
+      - /docker-entrypoint-initdb.d
+      - /etc/mysql/conf.d
+
+  mysql:
+    volumes_from:
+      - homes
 
   php_admin:
     volumes_from:
@@ -18,4 +24,3 @@ services:
 
 volumes:
   homes:
-

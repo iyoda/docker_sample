@@ -37,8 +37,14 @@ jobs:
             docker-compose -f docker-compose.yml -f docker-compose-ci.yml up -d homes
             docker cp ../hoge_project/admin_app homes:/home/hoge
             docker cp ../hoge_project/site_app homes:/home/hoge
+            docker cp ./mysql_init/01_create_db.sql homes:/docker-entrypoint-initdb.d
+            docker cp ./mysql_init/02_import_db.sh homes:/docker-entrypoint-initdb.d
+            docker cp ./mysql_init/fuga.dump.gz homes:/docker-entrypoint-initdb.d
+            docker cp ./mysql_init/fuga2.dump.gz homes:/docker-entrypoint-initdb.d
+            docker cp ./mysql_conf.d/utf8.cnf homes:/etc/mysql/conf.d
             docker-compose -f docker-compose.yml -f docker-compose-ci.yml up -d
             sleep 5
             docker-compose ps
             docker-compose logs
             docker-compose exec php curl --retry 10 --retry-delay 1 http://localhost:80/mysql_sample.php
+            docker-compose logs
