@@ -34,7 +34,7 @@ jobs:
             set -x
             cd /root/docker_sample/foobar-server
             docker-compose build
-            docker-compose -f docker-compose.yml -f docker-compose-ci.yml homes up
+            docker-compose -f docker-compose.yml -f docker-compose-ci.yml up -d homes
             docker cp ../hoge_project/admin_app homes:/home/hoge
             docker cp ../site_app homes:/home/hoge
             docker-compose -f docker-compose.yml -f docker-compose-ci.yml up -d
